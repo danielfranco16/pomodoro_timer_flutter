@@ -10,6 +10,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Pomodoro Timer',
       home: PomodoroTimer(),
+      theme: ThemeData(primaryColor: Colors.green[700]),
     );
   }
 }

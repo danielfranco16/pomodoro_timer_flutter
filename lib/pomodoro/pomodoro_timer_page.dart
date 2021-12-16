@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:icofont_flutter/icofont_flutter.dart';
 
-int initialMinutes = 24;
-int initialSeconds = 60;
-String time = '25:00';
+int initialMinutes = 04;
+int initialSeconds = 59;
+String time = '05:00';
 var duration = const Duration(seconds: 1);
 var watch = Stopwatch();
 FlutterSound flutterSound = new FlutterSound();
@@ -40,7 +40,7 @@ class PomodoroTimerState extends State<PomodoroTimer> {
     watch.stop();
     watch.reset();
     setState(() {
-      time = '25:00';
+      time = '05:00';
     });
   }
 
@@ -58,6 +58,7 @@ class PomodoroTimerState extends State<PomodoroTimer> {
           child: Icon(
             IcoFontIcons.tomato,
             size: 200.00,
+            color: Colors.red[900],
           ),
         ),
         Row(children: <Widget>[
@@ -65,11 +66,13 @@ class PomodoroTimerState extends State<PomodoroTimer> {
             icon: Icon(Icons.refresh),
             onPressed: _restart,
             iconSize: 60,
+            color: Colors.red,
           ),
           IconButton(
             icon: _isPlaying() ? Icon(Icons.pause) : Icon(Icons.play_arrow),
             onPressed: _startStopwatch,
             iconSize: 60,
+            color: Colors.green[700],
           )
         ], mainAxisAlignment: MainAxisAlignment.center),
       ],
@@ -109,7 +112,7 @@ class PomodoroTimerState extends State<PomodoroTimer> {
 
   void _playSong() async {
     await flutterSound.startPlayer(
-        'https://incompetech.com/music/royalty-free/mp3-royaltyfree/Surf%20Shimmy.mp3');
+        'https://sounds-mp3.com/mp3/0003282.mp3');
     _setTimeoutForSong(10000);
   }
 
